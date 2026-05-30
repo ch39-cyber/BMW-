@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BMW SmartDrive 3D Cockpit Simulator</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <div class="brand">BMW SmartDrive 3D Cockpit Simulator</div>
+      <div class="topbar-info">
+        <span id="top-temperature">24°C</span>
+        <span class="weather">☀️</span>
+        <span id="top-time">12:45 PM</span>
+        <span class="icon">🔔</span>
+        <span class="avatar">Driver</span>
+      </div>
+    </header>
+
+    <main class="dashboard">
+      <aside class="sidebar left-panel">
+        <section class="panel card status-panel">
+          <h2>VEHICLE STATUS</h2>
+          <div class="status-banner success">All Systems Normal</div>
+          <div class="car-preview">
+            <img src="assets/images/bmw-preview.jpg" alt="BMW vehicle" />
+          </div>
+          <div class="stat-list">
+            <div class="stat-row"><span>Fuel</span><span id="fuel-value">68%</span></div>
+            <div class="progress"><div id="fuel-bar" class="progress-fill"></div></div>
+            <div class="stat-row"><span>Battery</span><span id="battery-value">72%</span></div>
+            <div class="progress"><div id="battery-bar" class="progress-fill"></div></div>
+            <div class="stat-row"><span>Engine Temp</span><span id="engine-value">92°C</span></div>
+            <div class="progress"><div id="engine-bar" class="progress-fill"></div></div>
+            <div class="stat-row"><span>Tire Pressure</span><span id="tire-value">2.4 bar</span></div>
+            <div class="progress"><div id="tire-bar" class="progress-fill"></div></div>
+          </div>
+        </section>
+
+        <section class="panel card assistant-panel">
+          <h2>DRIVING ASSISTANT</h2>
+          <div class="toggle-row"><span>Lane Assist</span><button id="laneAssistBtn" class="toggle-btn on">ON</button></div>
+          <div class="toggle-row"><span>Adaptive Cruise</span><button id="adaptiveCruiseBtn" class="toggle-btn on">ON</button></div>
+          <div class="toggle-row"><span>Collision Warning</span><button id="collisionWarningBtn" class="toggle-btn on">ON</button></div>
+          <div class="toggle-row"><span>Blind Spot Monitor</span><button id="blindSpotBtn" class="toggle-btn on">ON</button></div>
+        </section>
+
+        <section class="panel card monitor-panel">
+          <h2>DRIVER MONITOR</h2>
+          <div class="attention-card">
+            <div class="attention-label">Attention Level</div>
+            <div class="attention-value" id="attentionPercent">85%</div>
+            <div class="attention-status">GOOD</div>
+            <div class="attention-gauge"><div id="attention-fill"></div></div>
+          </div>
+          <div class="status-grid">
+            <div><span>Eye Status</span><strong id="eyeStatus">Open</strong></div>
+            <div><span>Face Detected</span><strong id="faceDetected">Yes</strong></div>
+          </div>
+          <div class="focused-note">Driver is focused</div>
+        </section>
+      </aside>
+
+      <section class="center-panel">
+        <div class="roadscape">
+          <div class="road-overlay">
+            <div class="route-card">
+              <div class="route-distance" id="routeDistance">2.4 km</div>
+              <div class="route-instruction" id="routeInstruction">Turn Right</div>
+              <div class="route-subtitle" id="routeSubtitle">City Center</div>
+            </div>
+            <div class="speed-limit-card" id="speedLimitCard">
+              <div>Speed Limit</div>
+              <div class="speed-limit-value" id="speedLimitValue">80</div>
+              <div class="speed-limit-unit">km/h</div>
+            </div>
+          </div>
+          <div class="road-scene">
+            <img class="road-background" src="assets/images/bmw-road-bg.jpg" alt="Road view" />
+            <div class="vehicle-path"></div>
+            <div class="vehicle-hud">
+              <div class="hud-speed"> <span id="currentSpeed">75</span> <small>km/h</small></div>
+              <div class="hud-gear" id="currentGear">D</div>
+              <div class="hud-mode">COMFORT</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="instrument-cluster">
+          <div class="cluster-card baseline">
+            <div class="cluster-speed">75</div>
+            <div class="cluster-gear">D</div>
+            <div class="cluster-info" id="clusterInfo">12:45 pm · 12580 km · +24°C</div>
+          </div>
+          <div class="cluster-controls">
+            <button id="brakeBtn">RESUME</button>
+            <button id="cancelBtn">CANCEL</button>
+            <button id="setBtn">SET</button>
+          </div>
+          <div class="dashboard-actions">
+            <label>Speed</label>
+            <input id="speedRange" type="range" min="0" max="220" value="75" />
+          </div>
+        </div>
+      </section>
+
+      <aside class="sidebar right-panel">
+        <section class="panel card nav-panel">
+          <h2>NAVIGATION</h2>
+          <div class="mini-map">
+            <div class="route-line"></div>
+            <div class="car-marker"></div>
+          </div>
+          <div class="nav-summary">
+            <div class="nav-step" id="navStep">2.4 km</div>
+            <div class="nav-action" id="navAction">Turn Right</div>
+            <div class="nav-destination" id="navDestination">City Center</div>
+          </div>
+          <div class="nav-meta"><span id="navEta">ETA 12:58 PM</span><span id="navTravelTime">13 min</span><span id="navLength">7.2 km</span></div>
+        </section>
+
+        <section class="panel card media-panel">
+          <div class="media-header"><h2>MEDIA</h2><span class="collapse">⯆</span></div>
+          <div class="media-track">
+            <div class="track-title" id="trackTitle">Dream Ahead</div>
+            <div class="track-subtitle" id="trackSubtitle">BMW Sounds · Electric Collection</div>
+          </div>
+          <div class="media-progress">
+            <span id="mediaPosition">01:25</span>
+            <div class="progress"><div id="mediaProgressFill" class="progress-fill"></div></div>
+            <span id="mediaDuration">03:45</span>
+          </div>
+          <div class="media-controls">
+            <button id="prevTrack">⏮</button>
+            <button id="playPauseBtn">⏯</button>
+            <button id="nextTrack">⏭</button>
+          </div>
+        </section>
+
+        <section class="panel card controls-panel">
+          <h2>VEHICLE CONTROLS</h2>
+          <div class="control-grid">
+            <button id="lockBtn" class="control-icon">🔒<span>Lock</span></button>
+            <button id="unlockBtn" class="control-icon">🔓<span>Unlock</span></button>
+            <button id="lightsBtn" class="control-icon">💡<span>Lights</span></button>
+            <button id="trunkBtn" class="control-icon">🚗<span>Trunk</span></button>
+            <button id="climateBtn" class="control-icon">❄️<span>Climate</span></button>
+            <button id="seatsBtn" class="control-icon">🛋<span>Seats</span></button>
+            <button id="cameraBtn" class="control-icon">📷<span>Camera</span></button>
+            <button id="settingsBtn" class="control-icon">⚙️<span>Settings</span></button>
+          </div>
+        </section>
+
+        <section class="panel card ai-panel">
+          <div class="ai-header">
+            <h2>Smart AI Assistant</h2>
+            <button id="aiHelpBtn" class="ai-help-btn">?</button>
+          </div>
+          <div class="ai-response" id="aiResponse">Hello Driver, I am BMW Smart AI. Ask me to navigate, optimize route, control systems, or check vehicle status.</div>
+          <div class="ai-input-row">
+            <input id="aiInput" type="text" placeholder="Ask BMW to navigate, play music, or lock the car" />
+            <button id="aiSendBtn">Ask</button>
+          </div>
+          <div class="ai-suggestions" id="aiSuggestions"></div>
+        </section>
+      </aside>
+    </main>
+
+    <footer class="bottom-nav">
+      <button class="nav-tab active" data-page="Cockpit">Cockpit</button>
+      <button class="nav-tab" data-page="Map">Map</button>
+      <button class="nav-tab" data-page="Media">Media</button>
+      <button class="nav-tab" data-page="Phone">Phone</button>
+      <button class="nav-tab" data-page="Vehicle">Vehicle</button>
+      <button class="nav-tab" data-page="Apps">Apps</button>
+      <div class="voice-command" id="voiceCommandText">
+        <span>Hey BMW, navigate to work</span>
+      </div>
+    </footer>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
