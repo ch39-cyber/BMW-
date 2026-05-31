@@ -6,12 +6,12 @@ GPU Godfather is an intelligent GPU orchestration system integrated into the BMW
 
 ### Key Features
 
-- 🎯 **Intelligent Workload Routing** - AI-powered task distribution with priority-based scheduling
-- 💰 **Cost Optimization** - Real-time GPU cost tracking and budget management
-- 🤖 **AI Agent Integration** - Support for OpenClaw, Nemotron/NemoClaw, and custom AI agents
-- ⚡ **Dynamic Resource Allocation** - Automatic memory and power management
-- 📊 **Real-Time Monitoring** - Live GPU metrics dashboards in the cockpit UI
-- 🔧 **Three Optimization Modes** - ECO, BALANCED, and PERFORMANCE strategies
+-  **Intelligent Workload Routing** - AI-powered task distribution with priority-based scheduling
+-  **Cost Optimization** - Real-time GPU cost tracking and budget management
+-  **AI Agent Integration** - Support for OpenClaw, Nemotron/NemoClaw, and custom AI agents
+-  **Dynamic Resource Allocation** - Automatic memory and power management
+-  **Real-Time Monitoring** - Live GPU metrics dashboards in the cockpit UI
+-  **Three Optimization Modes** - ECO, BALANCED, and PERFORMANCE strategies
 
 ## Quick Start
 
@@ -26,28 +26,28 @@ GPU Godfather is now live! Visit: https://bmw-tan-five.vercel.app
 
 ## Features
 
-### 📊 Real-Time GPU Monitoring
+###  Real-Time GPU Monitoring
 - GPU Utilization (0-100%)
 - Temperature Monitoring (45-85°C)
 - VRAM Usage Tracking
 - Power Consumption (W)
 
-### 💰 Cost Optimization
+###  Cost Optimization
 - Hourly cost tracking
 - Daily projections
 - Monthly estimates
 - Automatic savings calculation
 
-### 🤖 AI Agent Management
+###  AI Agent Management
 - Route Optimizer
 - Predictive Analytics
 - Safety Monitor
 - Custom agent support
 
-### ⚙️ Three Optimization Modes
-- 🔋 ECO: 75% clocks, 80% power (~12.5% savings)
-- ⚡ BALANCED: 100% clocks, 100% power (~8.5% savings)
-- 🚀 PERFORMANCE: 115% clocks, 120% power (+15-20% cost)
+###  Three Optimization Modes
+-  ECO: 75% clocks, 80% power (~12.5% savings)
+-  BALANCED: 100% clocks, 100% power (~8.5% savings)
+-  PERFORMANCE: 115% clocks, 120% power (+15-20% cost)
 
 ## Architecture
 
@@ -102,9 +102,8 @@ orchestrator.optimizeResources('ECO');
 
 Built by:
 - Chandan Kumar Yadav (@ch39-cyber)
-- Heli Kadakia
-- Sanya Bhatia
 
+  
 Technologies:
 - OpenClaw
 - Nemotron/NemoClaw
@@ -113,4 +112,4 @@ Technologies:
 
 ---
 
-**GPU Godfather** - Intelligent GPU orchestration for automotive AI 🚀
+**GPU Godfather** - Intelligent GPU orchestration for automotive AI 
