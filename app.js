@@ -114,19 +114,6 @@ const elements = {
   aiHelpBtn: document.getElementById('aiHelpBtn'),
   statusBanner: document.querySelector('.status-banner'),
   navTabs: document.querySelectorAll('.nav-tab'),
-  adaptiveCruiseBtn: document.getElementById('adaptiveCruiseBtn'),
-  collisionWarningBtn: document.getElementById('collisionWarningBtn'),
-  blindSpotBtn: document.getElementById('blindSpotBtn'),
-  lockBtn: document.getElementById('lockBtn'),
-  unlockBtn: document.getElementById('unlockBtn'),
-  lightsBtn: document.getElementById('lightsBtn'),
-  trunkBtn: document.getElementById('trunkBtn'),
-  climateBtn: document.getElementById('climateBtn'),
-  seatsBtn: document.getElementById('seatsBtn'),
-  cameraBtn: document.getElementById('cameraBtn'),
-  settingsBtn: document.getElementById('settingsBtn'),
-  statusBanner: document.querySelector('.status-banner'),
-  navTabs: document.querySelectorAll('.nav-tab'),
 };
 
 function formatTime(seconds) {
@@ -284,6 +271,35 @@ function updateSuggestions() {
     appState.vehicleLocked ? 'Unlock doors' : 'Lock doors',
     'Check vehicle status',
   ];
+}
+
+function refreshAiUI() {
+  if (!elements.aiSuggestions) return;
+  
+  elements.aiSuggestions.innerHTML = '';
+  appState.aiSuggestions.forEach((suggestion) => {
+    const chip = document.createElement('div');
+    chip.className = 'ai-suggestion-chip';
+    chip.textContent = suggestion;
+    chip.addEventListener('click', () => {
+      elements.aiInput.value = suggestion;
+      processAiInput();
+    });
+    elements.aiSuggestions.appendChild(chip);
+  });
+}
+
+function processAiInput() {
+  const input = elements.aiInput.value.trim();
+  if (!input) return;
+
+  const response = parseAiCommand(input);
+  appState.aiResponse = response;
+  elements.aiResponse.textContent = response;
+  elements.aiInput.value = '';
+
+  updateStatus();
+  refreshAiUI();
 }
 
 function updateStatus() {
