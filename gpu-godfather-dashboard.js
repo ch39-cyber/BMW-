@@ -66,7 +66,7 @@ function initializeGpuDashboard() {
   const dashboardHTML = `
     <section class="panel card gpu-godfather-panel">
       <div class="gpu-header">
-        <h2>🎬 GPU Godfather</h2>
+        <h2> GPU Godfather</h2>
         <span class="gpu-status-badge" id="gpuStatusBadge">ACTIVE</span>
       </div>
       
@@ -110,7 +110,7 @@ function initializeGpuDashboard() {
       
       <!-- Cost Tracking -->
       <div class="cost-tracking-section">
-        <h3>💰 Cost Optimization</h3>
+        <h3> Cost Optimization</h3>
         <div class="cost-grid">
           <div class="cost-item">
             <span>Hourly Cost</span>
@@ -135,9 +135,9 @@ function initializeGpuDashboard() {
       <div class="optimization-controls">
         <h3>⚙️ Optimization Mode</h3>
         <div class="mode-buttons">
-          <button class="mode-btn eco" id="ecoModeBtn" data-mode="ECO">🔋 ECO</button>
-          <button class="mode-btn balanced active" id="balancedModeBtn" data-mode="BALANCED">⚡ BALANCED</button>
-          <button class="mode-btn performance" id="performanceModeBtn" data-mode="PERFORMANCE">🚀 PERFORMANCE</button>
+          <button class="mode-btn eco" id="ecoModeBtn" data-mode="ECO"> ECO</button>
+          <button class="mode-btn balanced active" id="balancedModeBtn" data-mode="BALANCED"> BALANCED</button>
+          <button class="mode-btn performance" id="performanceModeBtn" data-mode="PERFORMANCE"> PERFORMANCE</button>
         </div>
         <div class="mode-description" id="modeDescription">
           Balanced mode optimizes GPU usage for both performance and cost efficiency.
@@ -146,19 +146,19 @@ function initializeGpuDashboard() {
       
       <!-- Active Workloads -->
       <div class="workload-section">
-        <h3>📊 Active AI Workloads</h3>
+        <h3> Active AI Workloads</h3>
         <div class="workload-list" id="workloadList"></div>
       </div>
       
       <!-- AI Agents -->
       <div class="ai-agents-section">
-        <h3>🤖 AI Agent Distribution</h3>
+        <h3> AI Agent Distribution</h3>
         <div class="agents-list" id="aiAgentsList"></div>
       </div>
       
       <!-- Recommendations -->
       <div class="recommendations-section">
-        <h3>💡 Optimization Recommendation</h3>
+        <h3> Optimization Recommendation</h3>
         <div class="recommendation-card">
           <div><strong id="bottleneckLabel">Bottleneck:</strong> <span id="bottleneckValue">Memory Bandwidth</span></div>
           <div><strong>Action:</strong> <span id="recommendedAction">Reduce scene resolution</span></div>
@@ -292,9 +292,9 @@ function setOptimizationMode(mode) {
   gpuGodfatherState.optimizationLevel = mode;
   
   const modeDescriptions = {
-    'ECO': '🔋 ECO mode reduces GPU clocks to minimize power consumption and costs. Best for non-critical tasks.',
-    'BALANCED': '⚡ BALANCED mode optimizes GPU usage for both performance and cost efficiency. Recommended default.',
-    'PERFORMANCE': '🚀 PERFORMANCE mode maximizes GPU throughput. Higher power draw and costs but maximum speed.'
+    'ECO': ' ECO mode reduces GPU clocks to minimize power consumption and costs. Best for non-critical tasks.',
+    'BALANCED': ' BALANCED mode optimizes GPU usage for both performance and cost efficiency. Recommended default.',
+    'PERFORMANCE': ' PERFORMANCE mode maximizes GPU throughput. Higher power draw and costs but maximum speed.'
   };
   
   document.getElementById('modeDescription').textContent = modeDescriptions[mode];
